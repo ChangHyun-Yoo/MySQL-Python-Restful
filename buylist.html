@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>구매 내역</title>
+</head>
+<body>
+<h1>{{id}} 님의 구매 내역</h1>
+
+<br>
+<br>
+<table class="table table-hover table-striped text-center" style=" width: 50%; border: 1px  solid #111114;">
+    <thead>
+    <tr>
+        <center>
+            <th>가게</th>
+            <th>결제 방식</th>
+            <th>메뉴</th>
+            <th>가격</th>
+            <th>주문 날짜</th>
+            <th>주문 시간</th>
+            <th>주문 상태</th>
+            <th>주소</th>
+        </center>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data_list %}
+    <tr>
+
+        <td><center>{{ i[0] }}</center></td>
+        <td><center>{{ i[1] }}</center></td>
+        <td><center>{{ i[2] }}</center></td>
+        <td><center>{{ i[3] }}</center></td>
+        <td><center>{{ i[4] }}</center></td>
+        <td><center>{{ i[5] }}</center></td>
+        <td><center>{{ i[6] }}</center></td>
+        <td><center>{{ i[7] }}</center></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

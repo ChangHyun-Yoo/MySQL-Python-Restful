@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>판매 관리</title>
+</head>
+<body>
+{{id}} 님 환영합니다!
+<button onclick="location.href='http://127.0.0.1:5000/'">로그아웃</button >
+<button onclick="window.open('http://127.0.0.1:5000/sellermenuman')">메뉴 현황</button >
+<br>
+<br>
+<table class="table table-hover table-striped text-center" style=" width: 70%; border: 1px  solid #111114;">
+    <thead>
+    <tr>
+        <center>
+            <th>결제 방식</th>
+            <th>메뉴 이름</th>
+            <th>가격</th>
+            <th>주문 날짜</th>
+            <th>주문 시간</th>
+            <th>주문 상태</th>
+            <th>주소</th>
+            <th>구매자 ID</th>
+            <th>판매자 ID</th>
+            <th>전화번호</th>
+            <th>주문 상태 변경</th>
+            <th>수정</th>
+        </center>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data_list %}
+    <tr>
+        <td><center>{{ i[0] }}</center></td>
+        <td><center>{{ i[1] }}</center></td>
+        <td><center>{{ i[2] }}</center></td>
+        <td><center>{{ i[3] }}</center></td>
+        <td><center>{{ i[4] }}</center></td>
+        <td><center>{{ i[5] }}</center></td>
+        <td><center>{{ i[6] }}</center></td>
+        <td><center>{{ i[7] }}</center></td>
+        <td><center>{{ i[8] }}</center></td>
+        <td><center>{{ i[9] }}</center></td>
+        <form action="\sellmanage" method="post">
+            <td>
+                <center>
+                    <select name="orderstate" >
+                        <option value="checking">=== 선택 ===</option>
+                        <option value="accepted">주문 수락</option>
+                        <option value="deliverying">배달 중</option>
+                        <option value="delivered">배달 완료</option>
+                    </select>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <input type="hidden" class="form-control" name="date" value={{i[3]}}>
+                    <input type="hidden" class="form-control" name="time" value={{i[4]}}>
+                    <button class= "btn btn-link" type="submit">수정</button>
+                </center>
+            </td>
+        </form>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</body>
+</html>

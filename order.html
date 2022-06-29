@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주문하기</title>
+</head>
+<body>
+<h1>{{id}} 매장의 메뉴 주문</h1>
+
+<br>
+<br>
+<table class="table table-hover table-striped text-center" style=" width: 50%; border: 1px  solid #111114;">
+    <thead>
+    <tr>
+        <center>
+            <th>메뉴</th>
+            <th>가격</th>
+            <th>주문하기</th>
+        </center>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data_list %}
+    <tr>
+
+        <td><center>{{ i[0] }}</center></td>
+        <td><center>{{ i[1] }}</center></td>
+
+        <form action="\ordering" method="post">
+            <td>
+                <center>
+                    <input type="hidden" class="form-control" name="menu" value={{i[0]}}>
+                    <button class= "btn btn-link" type="submit">주문하기</button>
+                </center>
+            </td>
+        </form>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</body>
+</html>
